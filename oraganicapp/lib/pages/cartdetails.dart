@@ -62,60 +62,61 @@ class _CartDetailsState extends State<CartDetails> {
                       fontWeight: FontWeight.bold)),
             ),
             Expanded(
-                child: ListView.builder(
-                    itemCount: finalList.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Slidable(
-                          endActionPane:
-                              ActionPane(motion: ScrollMotion(), children: [
-                            SlidableAction(
-                              onPressed: (context) {
-                                finalList.removeAt(index);
-                                setState(() {
-                                  // finalList.remove(index);
-                                });
-                              },
-                              backgroundColor: Colors.red,
-                              foregroundColor: Colors.pink[50],
-                              icon: Icons.delete,
-                              label: "Delete",
-                            ),
-                          ]),
-                          child: ListTile(
-                            title: Text(finalList[index].name,
+              child: ListView.builder(
+                  itemCount: finalList.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Slidable(
+                        endActionPane:
+                            ActionPane(motion: ScrollMotion(), children: [
+                          SlidableAction(
+                            onPressed: (context) {
+                              finalList.removeAt(index);
+                              setState(() {
+                                // finalList.remove(index);
+                              });
+                            },
+                            backgroundColor: Colors.red,
+                            foregroundColor: Colors.pink[50],
+                            icon: Icons.delete,
+                            label: "Delete",
+                          ),
+                        ]),
+                        child: ListTile(
+                          title: Text(finalList[index].name,
+                              style: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              )),
+                          subtitle: Text('\$${finalList[index].price}',
+                              style: const TextStyle(
+                                color: Colors.black,
+                              )),
+                          leading: CircleAvatar(
+                            backgroundImage: AssetImage(finalList[index].image),
+                            backgroundColor:
+                                const Color.fromARGB(255, 225, 188, 201),
+                          ),
+                          trailing: Column(
+                            children: [
+                              Expanded(
+                                  child:
+                                      _buildProductQuantity(Icons.add, index)),
+                              Text(
+                                finalList[index].quantity.toString(),
                                 style: const TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                )),
-                            subtitle: Text('\$${finalList[index].price}',
-                                style: const TextStyle(
-                                  color: Colors.black,
-                                )),
-                            leading: CircleAvatar(
-                              backgroundImage:
-                                  AssetImage(finalList[index].image),
-                              backgroundColor:
-                                  const Color.fromARGB(255, 225, 188, 201),
-                            ),
-                            trailing: Column(
-                              children: [
-                                _buildProductQuantity(Icons.add, index),
-                                Text(
-                                  finalList[index].quantity.toString(),
-                                  style: const TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                _buildProductQuantity(Icons.remove, index),
-                              ],
-                            ),
+                                    fontSize: 14, fontWeight: FontWeight.bold),
+                              ),
+                              _buildProductQuantity(Icons.remove, index),
+                            ],
                           ),
                         ),
-                      );
-                    })),
+                      ),
+                    );
+                  }),
+            ),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 20),
               alignment: Alignment.center,
