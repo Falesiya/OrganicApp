@@ -94,11 +94,13 @@ class _CartDetailsState extends State<CartDetails> {
                                 style: const TextStyle(
                                   color: Colors.black,
                                 )),
-                            leading: CircleAvatar(
-                              backgroundImage:
-                                  AssetImage(finalList[index].image),
-                              backgroundColor:
-                                  const Color.fromARGB(255, 225, 188, 201),
+                            leading: Expanded(
+                              child: CircleAvatar(
+                                backgroundImage:
+                                    AssetImage(finalList[index].image),
+                                backgroundColor:
+                                    const Color.fromARGB(255, 225, 188, 201),
+                              ),
                             ),
                             trailing: Column(
                               children: [

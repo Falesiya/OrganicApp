@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:oraganicapp/pages/splashpage.dart';
 import 'package:oraganicapp/provider/cartprovider.dart';
 import 'package:oraganicapp/provider/favouritecard.dart';
 import 'package:oraganicapp/utils/custonmavbar.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const CustomNavBar(),
+        home: SplashPage(),
       ),
     );
   }
